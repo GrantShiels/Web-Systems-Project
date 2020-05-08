@@ -2199,6 +2199,7 @@ exports.rootEndpoints = [
 
     //fucntion that is uses to display each of the pokemons info to the user
     function displayPokedex(pokeData){
+        var currentID = `#${pokeData.id}`
         //all of the containers will be stored here
         let allPokemonContainer = document.getElementById('poke-container');
 
@@ -2210,7 +2211,7 @@ exports.rootEndpoints = [
         pokeName.innerText = pokeData.name
 
         let pokeNumber = document.createElement("p")
-        pokeNumber.innerText = `#${pokeData.id}`
+        pokeNumber.innerText = currentID
 
         //some pokemon have multiple types so will make types a lis
         let pokeTypes = document.createElement("ul")
@@ -2221,6 +2222,20 @@ exports.rootEndpoints = [
 
         //add the info box to the list of all pokemon
         allPokemonContainer.appendChild(pokeContainer)
+
+        getPokeImage(currentID, pokeContainer)
+    }
+
+    //The PokeAPI does provide some images for the pokemon, however they are small
+    //and don't look very HD. So I shall use the Pokeres API to get higher quality images
+    function getPokeImage(pokeID, containerDiv){
+
+        //create new image element
+        let pokeImage = document.createElement("img")
+        //get the image from the ID
+        pokeImage.srcset = `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
+        //add the image
+        containerDiv.append(pokeImage);
     }
 
     //function that is used to build the types list 
