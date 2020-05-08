@@ -4,6 +4,7 @@
   "description": "pokemon battling app",
   "main": "index.js",
   "dependencies": {
+    "browserify": "^16.5.1",
     "ejs": "^3.1.2",
     "express": "^4.17.1",
     "mongodb": "^3.5.7",

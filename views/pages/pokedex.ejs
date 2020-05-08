@@ -4,14 +4,41 @@
 	<%- include('segments/header.ejs') %>
 </head>
 
-<body onload="testPokdex()">
+<body>
 
 <!-- Top Nav Bar -->
-<%- include('segments/navbar.ejs') %>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="nav-logo" src="./img/pokeball-logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/pokedex">Pokedex</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Battle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">LogIn/SignUp</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </nav>
 
 <!-- Holds all of the pokemon cards-->
 <div id="poke-container">
-
+<script type="text/javascript" src="/scripts/bundle.js"></script>
+<script type="text/javascript" src="/scripts/pokedexScript.js"></script>
 </div>
 
 <!-- Footer -->
@@ -21,23 +48,3 @@
 </html>
 
 
-<script>
-
-    
-//Test script for playing around with pokemon api
-const fetch = require("node-fetch")
-
-function testPokdex(){
-
-    var Pokedex = require('pokedex-promise-v2');
-    var Dex = new Pokedex();
-    var amount = { limit: 151 }
-
-    Dex.getPokemonsList(amount)
-        .then(function(response) {
-            console.log(response)
-    })
-
-}
-
-</script>
