@@ -4,13 +4,40 @@
 	<%- include('segments/header.ejs') %>
 </head>
 
-<body>
+<body onload="testPokdex()">
 
 <!-- Top Nav Bar -->
 <%- include('segments/navbar.ejs') %>
+
+<!-- Holds all of the pokemon cards-->
+<div id="poke-container">
+
+</div>
 
 <!-- Footer -->
 <%- include('segments/footer.ejs') %>
 
 </body>
 </html>
+
+
+<script>
+
+    
+//Test script for playing around with pokemon api
+const fetch = require("node-fetch")
+
+function testPokdex(){
+
+    var Pokedex = require('pokedex-promise-v2');
+    var Dex = new Pokedex();
+    var amount = { limit: 151 }
+
+    Dex.getPokemonsList(amount)
+        .then(function(response) {
+            console.log(response)
+    })
+
+}
+
+</script>

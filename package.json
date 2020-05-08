@@ -6,6 +6,8 @@
   "dependencies": {
     "ejs": "^3.1.2",
     "express": "^4.17.1",
+    "mongodb": "^3.5.7",
+    "node-fetch": "^2.6.0",
     "pokedex-promise-v2": "^3.2.0"
   },
   "devDependencies": {},
