@@ -2175,7 +2175,7 @@ exports.rootEndpoints = [
     //get all of the first generation pokemon, aka the kanto pokemon
     function getPokedexKanto(){
         //set the limit to 151 since that is all of the origional pokemon
-      fetch('https://pokeapi.co/api/v2/pokemon?limit=9')
+      fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
         .then(response => response.json())
         .then(function(allPokemon){
             allPokemon.results.forEach(function(pokemon){

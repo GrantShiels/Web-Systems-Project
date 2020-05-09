@@ -6,7 +6,7 @@
 
 <body>
 
-<!-- Top Nav Bar -->
+    <!-- Top Nav Bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img class="nav-logo" src="./img/pokeball-logo.png"></a>
@@ -18,7 +18,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/pokedex">Pokedex</a>
                 </li>
                 <li class="nav-item">
@@ -27,7 +27,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="/login">LogIn/SignUp</a>
                 </li>
             </ul>
@@ -37,23 +37,7 @@
 
 
 
-<!-- Holds all of the pokemon cards-->
-<div class="container-fluid padding">
-    <div class="row text-center padding centre" id="poke-container">
-
-    </div>
-
-
-</div>
-
 <!-- Footer -->
 <%- include('segments/footer.ejs') %>
 
-<!-- Script to fill in the pokemon info-->    
-<script type="text/javascript" src="scripts/browserify-scripts/pokedexFinal.js"></script>
-
-
 </body>
-</html>
-
-

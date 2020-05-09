@@ -2,19 +2,21 @@
   "name": "pokerumble",
   "version": "1.0.0",
   "description": "pokemon battling app",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "browserify": "^16.5.1",
     "ejs": "^3.1.2",
     "express": "^4.17.1",
     "mongodb": "^3.5.7",
+    "mongoose": "^5.9.13",
     "node-fetch": "^2.6.0",
     "pokedex-promise-v2": "^3.2.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
