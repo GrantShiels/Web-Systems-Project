@@ -1,9 +1,15 @@
-var express = require('express')
-var app     = express()
+const express = require('express')
+const path = require('path')
 const PORT = process.env.PORT || 8009
 
-var port = PORT;
-app.get('/', (req, res) => res.render('pages/index'))
 
-app.listen(PORT)
-console.log("express server runing at".PORT)
+
+express()
+  .use(express.static(path.join(__dirname, 'Public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('scripts', path.join(__dirname, 'scripts'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .get('/pokedex', (req, res) => res.render('pages/pokedex'))
+  .get('/login', (req, res) => res.render('pages/login'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
