@@ -49,7 +49,7 @@
         //make a new div for each opkemon that will hold it's info
         let pokeCard = document.createElement("div")
         //set attributes for the indivdual container
-        pokeCard.setAttribute("class", "card col-xs-12 col-sm-6 col-md-4")
+        pokeCard.setAttribute("class", "card col-xs-12 col-sm-6 col-md-3")
         pokeCard.setAttribute("id", "indivdual-card")
 
         let pokeCardInner = document.createElement("div")
