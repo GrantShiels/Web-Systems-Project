@@ -63,8 +63,11 @@ hr.light {
   margin-bottom: 1rem;
 }
 
-
-
+/* Pokedex Css Section */
+.pokeCard .img {
+  width: 10%;
+  height: 10%;
+}
 
 
 

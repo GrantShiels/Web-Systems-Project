@@ -1,7 +1,7 @@
 
-    const fetch = require("node-fetch");
-    var Pokedex = require('pokedex-promise-v2');
-    var Dex = new Pokedex();
+    const fetch = require("node-fetch")
+    var Pokedex = require('pokedex-promise-v2')
+    var Dex = new Pokedex()
     var amount = { limit: 151 }
 
     getPokedexKanto()
@@ -20,7 +20,7 @@
         .then(response => response.json())
         .then(function(allPokemon){
             allPokemon.results.forEach(function(pokemon){
-                getEachPokemonData(pokemon);
+                getEachPokemonData(pokemon)
             })
         })
     }
@@ -33,7 +33,9 @@
         fetch(pokeUrl)
         .then(response => response.json())
         .then(function(pokeData){
-            console.log(pokeData)
+            //display the data in the console
+            // console.log(pokeData)
+            //call funcion to display the data to the user
             displayPokedex(pokeData)
         })
     }
@@ -42,12 +44,15 @@
     function displayPokedex(pokeData){
         var currentID = `#${pokeData.id}`
         //all of the containers will be stored here
-        let allPokemonContainer = document.getElementById('poke-container');
+        let allPokemonContainer = document.getElementById('poke-container')
 
         //make a new div for each opkemon that will hold it's info
         let pokeContainer = document.createElement("div")
+        //set attributes for the indivdual container
+        pokeContainer.setAttribute("class", "pokeCard col-xs-12 col-sm-6 col-md-4")
+        pokeContainer.setAttribute("id", "indivdual-container")
 
-        //create elements for pokemon name and type etc
+        //create elements for pokemon ID, name and type etc
         let pokeName = document.createElement("h4")
         pokeName.innerText = pokeData.name
 
@@ -58,13 +63,16 @@
         let pokeTypes = document.createElement("ul")
         createTypes(pokeData.types, pokeTypes)
 
+        //call funcion to get the pokemon image
+        getPokeImage(pokeData.id, pokeContainer)
+
         //add the info of the pokemon to it's info box
-        pokeContainer.append(pokeName, pokeNumber, pokeTypes);
+        pokeContainer.append(pokeName, pokeNumber, pokeTypes)
 
         //add the info box to the list of all pokemon
         allPokemonContainer.appendChild(pokeContainer)
 
-        getPokeImage(pokeData.id, pokeContainer)
+
     }
 
     //The PokeAPI does provide some images for the pokemon, however they are small
@@ -74,10 +82,11 @@
 
         //create new image element
         let pokeImage = document.createElement("img")
+        pokeImage.setAttribute("style", "width: 50%;")
         //get the image from the ID
         pokeImage.srcset = imgUrl
         //add the image
-        containerDiv.append(pokeImage);
+        containerDiv.append(pokeImage)
     }
 
     //function that is used to build the types list 
@@ -85,9 +94,9 @@
         //for each type do
         types.forEach(function(type){
             //make a list item for each type
-            let typeLi = document.createElement("li");
-            typeLi.innerText = type["type"]["name"];
+            let typeLi = document.createElement("li")
+            typeLi.innerText = type["type"]["name"]
             //add the type to the list
-            ul.append(typeLi);
+            ul.append(typeLi)
         })
     }
