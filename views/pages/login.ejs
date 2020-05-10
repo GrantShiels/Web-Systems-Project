@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<%- include('segments/header.ejs') %>
+    <%- include('segments/header.ejs') %>
+    <script type="text/javascript" src="scripts/browserify-scripts/getLoginInput.js"></script>
+
 </head>
 
-<body>
+<body onload="makeRequest();">
+
+    <script>
+
+        var req;
+
+	    function makeRequest() {
+        if (window.XMLHttpRequest) {
+            req = new XMLHttpRequest();
+        }
+        else if (window.ActiveXObject) {
+            req = new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        else {
+    	    // Ajax not supported
+			return;
+    }
+
+
+    </script>
 
     <!-- Top Nav Bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
@@ -35,6 +56,24 @@
     </div>
 </nav>
 
+
+
+    <form class="form-signin">
+      <img class="mb-4" src="./img/pokeball-logo.png" alt="" width="72" height="72">
+      <h1 id="test" class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+
+    </form>
 
 
 <!-- Footer -->

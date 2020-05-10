@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<%- include('segments/header.ejs') %>
+    <%- include('segments/header.ejs') %>
+    
+    <!-- Script to fill in the pokemon info-->    
+    <script type="text/javascript" src="scripts/browserify-scripts/pokedexFinal.js"></script>
+
 </head>
 
-<body>
-
+<body onload="getPokedexKanto();">
 <!-- Top Nav Bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
@@ -48,9 +51,6 @@
 
 <!-- Footer -->
 <%- include('segments/footer.ejs') %>
-
-<!-- Script to fill in the pokemon info-->    
-<script type="text/javascript" src="scripts/browserify-scripts/pokedexFinal.js"></script>
 
 
 </body>
