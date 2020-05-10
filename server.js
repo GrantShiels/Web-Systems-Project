@@ -60,42 +60,35 @@ apiRouter.get('/', function(req, res, next) { 
   res.json({ message: 'hooray! welcome to our api!' }); 
 });
 
-apiRouter.route("/users")
+apiRouter.route('/users')
+       // create a user (accessed at POST http://localhost:8080/users)
+       .post(function(req, res) {
+         var user = new User(); // create a new instance of the User model
+         user.username = req.body.username; // set the users username (comes from the request)
+         user.password = req.body.password; // set the users password (comes from the request)
 
-    //used to create a user
-    .post(function(req, res) {
-      var user = new user();
-
-      user.username = req.body.username;
-      user.password = req.body.password;
-      user.pokemonOne = req.body.pokemonOne;
-      user.pokemonTwo = req.body.pokemonOne;
-      user.pokemonThree = req.body.pokemonOne;
-      user.pokemonFour = req.body.pokemonOne;
-
-      console.log(req.body.username);
-
-      user.save(function(err) {
-        if (err) {
-          //if there's already a user with those detials
-          if (err.code == 11000)
-            return res.json({ success: false, message: "Someone already has that Username, sorry "});
-          else
-            return res.send(err);
-        }
-
-        res.json({ message: "User has been created"});
-      });
-    })
-
-      //Get all users
-      .get(function(req, res) {
-        User.find(function(err, users) {
-          if (err) return res.send(err);
-          res.json(users);
+         console.log(req.body.name);
+         console.log(req.body.username);
+         user.save(function(err) {
+           if (err) {
+             // duplicate entry
+             if (err.code == 11000)
+              return res.json({ success: false, message: 'A user with that username already exists. '});
+             else
+              return res.send(err);
+            }
+            // return a message
+            res.json({ message: 'User created!' });
+          });
         })
-      })
-
+       // get all the users (accessed at GET http://address/api/users)
+       .get(function(req, res) {
+         User.find(function(err, users) {
+             if (err) return res.send(err);
+             // return the users
+             res.json(users);
+         });
+        });
 
 
 
