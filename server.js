@@ -18,6 +18,9 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 app.use(morgan("dev"));
 
+//need the user model script
+var User = require("./models/User");
+
 //setting up the .ejs file paths for the url
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json())
