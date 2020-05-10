@@ -3,9 +3,15 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 8009
 
+//mongoi const
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://GShiels:<Goldduck99>@pokerumble-wpaen.mongodb.net/test?retryWrites=true&w=majority";
+
+
 //set var for the cont for easy calls
 var app = express()
-//var port = PORT
+
+
 
 
 //setting up the .ejs file paths for the url
@@ -28,3 +34,10 @@ app.route("/test")
   .post(function(req, res){console.log("Porcessing")
   res.send("processing the login form")
 })
+
+MongoClient.connect(uri, function (err, db) {
+  if(err) throw err;
+
+  console.log("end DB stuff")
+  
+});

@@ -2,30 +2,53 @@
 <html lang="en">
 <head>
     <%- include('segments/header.ejs') %>
-    <script type="text/javascript" src="scripts/browserify-scripts/getLoginInput.js"></script>
+    <!-- <script type="text/javascript" src="scripts/browserify-scripts/getLoginInput.js"></script> -->
 
 </head>
 
 <body onload="makeRequest();">
 
     <script>
-
         var req;
+  
+      function makeRequest() {
+      if (window.XMLHttpRequest) {
+          req = new XMLHttpRequest();
+      }
+      else if (window.ActiveXObject) {
+          req = new ActiveXObject("Msxml2.XMLHTTP");
+      }
+      else {
+          // Ajax not supported
+              return;
+      }
+  
+          req.onreadystatechange = function() {
+          var txt = "";
+      if (this.readyState == 4 && this.status == 200) {
+              var response = this.responseText;
+              console.log (response);
+       document.getElementById("answer").innerHTML = response;
+      }
+      };
+  
+  }
+  
+      function testStuff() {
+          inputUsername = document.getElementById ("inputUsername").value;
+          inputPassword = document.getElementById ("inputPassword").value;
 
-	    function makeRequest() {
-        if (window.XMLHttpRequest) {
-            req = new XMLHttpRequest();
-        }
-        else if (window.ActiveXObject) {
-            req = new ActiveXObject("Msxml2.XMLHTTP");
-        }
-        else {
-    	    // Ajax not supported
-			return;
-    }
 
-
-    </script>
+            console.log("The 2 inputs are " + inputUsername + " and " + inputPassword)
+        //req.open("GET", "/login?inputUsername=" + inputUsername + "&inputPassword=" + inputPassword, true);
+        //  req.send();
+          //var params = 'inputUsername=' + inputUsername + '&inputPassword=' + inputPassword;
+          //req.open('POST', '/login?', true);
+          //req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+          //req.send(params);
+  
+      }
+  </script>
 
     <!-- Top Nav Bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
@@ -70,9 +93,10 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="testStuff();">Log in</button>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-
+     <input type="button" value="test button" onclick="testStuff();"/>
+      <p id="answer">Testing</p>
     </form>
 
 
