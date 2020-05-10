@@ -50,13 +50,56 @@ app.get('/pokedex', (req, res) => res.render('pages/pokedex'))
 //instance of the router
 var apiRouter = express.Router();
 
-//test to see if it's working
-apiRouter.get("/", function(req, res) {
-  res.json({message: "it's working"});
+
+apiRouter.use(function(req, res, next) {
+  console.log("User on app");
+  next();
+})
+
+apiRouter.get('/', function(req, res, next) { 
+  res.json({ message: 'hooray! welcome to our api!' }); 
 });
 
+apiRouter.route("/users")
 
-//the routes for the api will be here
+    //used to create a user
+    .post(function(req, res) {
+      var user = new user();
+
+      user.username = req.body.username;
+      user.password = req.body.password;
+      user.pokemonOne = req.body.pokemonOne;
+      user.pokemonTwo = req.body.pokemonOne;
+      user.pokemonThree = req.body.pokemonOne;
+      user.pokemonFour = req.body.pokemonOne;
+
+      console.log(req.body.username);
+
+      user.save(function(err) {
+        if (err) {
+          //if there's already a user with those detials
+          if (err.code == 11000)
+            return res.json({ success: false, message: "Someone already has that Username, sorry "});
+          else
+            return res.send(err);
+        }
+
+        res.json({ message: "User has been created"});
+      });
+    })
+
+      //Get all users
+      .get(function(req, res) {
+        User.find(function(err, users) {
+          if (err) return res.send(err);
+          res.json(users);
+        })
+      })
+
+
+
+
+
 app.use("/api", apiRouter);
 
 //-------------------------------------------
