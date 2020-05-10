@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 8009
 
 //mongoi const
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://GShiels:<Goldduck99>@pokerumble-wpaen.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://GShiels:Goldduck99@pokerumble-wpaen.mongodb.net/test?retryWrites=true&w=majority";
 
 
 //set var for the cont for easy calls
