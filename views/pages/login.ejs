@@ -13,7 +13,7 @@
     <!-- Top Nav Bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img class="nav-logo" src="./img/pokeball-logo.png"></a>
+        <a class="navbar-brand" href="/"><img class="nav-logo" src="../../img/pokeball-logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +32,7 @@
                     <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/login">Log In</a>
+                    <a class="nav-link" href="/user/login">Log In</a>
                 </li>
             </ul>
         </div>
@@ -45,9 +45,12 @@
     <div class="col-md-6 m-auto">
       <div class="card card-body">
         <h1 class="text-center mb-3">
-          <i class="fas fa-user-plus"></i> Register
+          <i class="fas fa-user"></i> Log In
         </h1>
-        <form action="/users/register" method="POST">
+
+        <%- include('segments/message.ejs'); %>
+
+        <form action="/user/login" method="POST">
 
           <div class="form-group">
             <label for="name">New Username</label>
@@ -77,7 +80,7 @@
             Login
           </button>
         </form>
-        <p class="lead mt-4">Need to create an account? <a href="/register">Register</a></p>
+        <p class="lead mt-4">Need to create an account? <a href="/user/register">Register</a></p>
       </div>
     </div>
   </div>
