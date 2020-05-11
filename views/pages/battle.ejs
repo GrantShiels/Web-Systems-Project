@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('segments/header.ejs') %>
+
+    <script type="text/javascript" src="scripts/"></script>
+
+</head>
+
+<body>
+
+   
+
+    <!-- Top Nav Bar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="nav-logo" src="../../img/pokeball-logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pokedex">Pokedex</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/battle">Battle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container">
+    <div class="row">
+        <!--Where the challnegre pokemon will go-->
+      <div id="challenger-col" class="col-sm">
+
+        <!--Challenger pokemon card-->
+        <div onload="getChallengePokemon();" class="card" style="width: 18rem;">
+            <img id="challenger-img" src="https://pokeres.bastionbot.org/images/pokemon/1.png" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 id="challenger-name" class="card-title">Bulbasaur</h5>
+            <p id="challenger-HP" class="card-text">HP: 100</p>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li id="challenger-type1" class="list-group-item">Grass</li>
+            <li id="challenger-type2" class="list-group-item">Poision</li>
+            </ul>
+        </div>
+
+
+    </div>
+    <!--game info collumn-->
+      <div id="game-col" class="col-sm">
+        One of three columns
+      </div>
+
+      <!--player saved pokemon column-->
+      <div id="party-col" class="col-sm">
+
+        <!--Challenger pokemon card-->
+        <div class="card" style="width: 18rem;">
+            <img src="https://pokeres.bastionbot.org/images/pokemon/1.png" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Bulbasaur</h5>
+            <p class="card-text">HP: 100</p>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">Grass</li>
+            <li class="list-group-item">Poision</li>
+            </ul>
+        </div>
+
+        <!--Challenger pokemon card-->
+        <div class="card" style="width: 18rem;">
+            <img src="https://pokeres.bastionbot.org/images/pokemon/1.png" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Bulbasaur</h5>
+            <p class="card-text">HP: 100</p>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">Grass</li>
+            <li class="list-group-item">Poision</li>
+            </ul>
+        </div>
+
+        <!--Challenger pokemon card-->
+        <div class="card" style="width: 18rem;">
+            <img src="https://pokeres.bastionbot.org/images/pokemon/1.png" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Bulbasaur</h5>
+            <p class="card-text">HP: 100</p>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">Grass</li>
+            <li class="list-group-item">Poision</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    </div>
+  </div>
+
+
+
+<!-- Footer -->
+<%- include('segments/footer.ejs') %>
+
+</body>

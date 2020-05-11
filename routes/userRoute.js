@@ -13,6 +13,7 @@ const User = require("../models/User")
 //render pages for the login and regiset
 router.get('/login', (req, res) => res.render('pages/login'))
 router.get("/register", (req, res) => res.render("pages/register"))
+
 router.get("/profile", ensureAuthenticated, (req, res) => 
     res.render("pages/profile", { 
         user: req.user.username

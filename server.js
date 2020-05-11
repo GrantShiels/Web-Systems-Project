@@ -6,8 +6,9 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const passport = require("passport");
+const Socket = require("socket.io");
 
-const app = express();
+var app = express();
 
 //passport script
 require("./lib/passport")(passport);
@@ -48,7 +49,7 @@ mongoose.connect(uri, {useNewUrlParser: true})
 //setting up the .ejs file paths for the url
 app.use(express.static(path.join(__dirname, 'Public')));
 app.set('views', path.join(__dirname, 'views'));
-app.set('scripts', path.join(__dirname, 'scripts'));
+app.set('scripts', path.join(__dirname, 'lib'));
 app.set('view engine', 'ejs');
 
 
@@ -86,10 +87,13 @@ app.use(function(req, res, next) {
 //ROutes
 app.get('/', (req, res) => res.render('pages/index'));
 app.get('/pokedex', (req, res) => res.render('pages/pokedex'));
+app.get("/battle", (req, res) => res.render("pages/battle"));
+app.get("/chat", (req, res) => res.render("pages/chat"));
 app.use("/user", require("./routes/userRoute"));
 
 
 
 
 
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));

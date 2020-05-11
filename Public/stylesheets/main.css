@@ -51,10 +51,11 @@ html, body {
   padding: 1rem;
   border-radius: 0;
 }
-footer {
+.footer {
   background-color: #3f3f3f;
   color: #d5d5d5;
   padding-top: 2rem;
+  bottom: 0;
 }
 hr.light {
   border-top: 1px solid #d5d5d5;
