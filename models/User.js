@@ -6,8 +6,8 @@ var bcrypt  = require('bcrypt-nodejs');
 
 //Scheem build from username, password and four fav pokemon
 var UserSchema = new Schema({
-    username: { type: String, required: true, index: { unique: true}},
-    password: { type: String, required: true, select: false },
+    username: { type: String, required: true, index: { unique: true }},
+    password: { type: String, required: true},
     pokemonOne: String,
     pokemonTwo: String,
     pokemonThree: String,
@@ -16,10 +16,12 @@ var UserSchema = new Schema({
 
 
 
-UserSchema.methods.comparePasswords = function(password) {
-    var user = this;
+// UserSchema.methods.comparePasswords = function(password) {
+//     var user = this;
 
-    return bcrypt.compareSync.model("User", UserSchema);
-};
+//     return bcrypt.compareSync.model("User", UserSchema);
+// };
 
-module.exports = mongoose.model("User", UserSchema);
+var User = mongoose.model("User", UserSchema);
+
+module.exports = User;

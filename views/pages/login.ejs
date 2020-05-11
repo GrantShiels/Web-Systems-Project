@@ -53,13 +53,13 @@
         <form action="/user/login" method="POST">
 
           <div class="form-group">
-            <label for="name">New Username</label>
+            <label for="name">Username</label>
             <input
               type="name"
               id="username"
               name="username"
               class="form-control"
-              placeholder="Enter New Username"
+              placeholder="Username"
               value="<%= typeof username != 'undefined' ? username : '' %>"
             />
           </div>
@@ -71,7 +71,7 @@
               id="password"
               name="password"
               class="form-control"
-              placeholder="Create Password"
+              placeholder="Password"
               value="<%= typeof password != 'undefined' ? password : '' %>"
             />
           </div>

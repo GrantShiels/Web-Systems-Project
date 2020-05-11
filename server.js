@@ -2,19 +2,24 @@
 const express = require('express');
 const path = require('path');
 const flash = require("connect-flash");
-const PORT = process.env.PORT || 8009
+const session = require("express-session");
+const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
+const passport = require("passport");
+
+const app = express();
+
+//passport script
+require("./lib/passport")(passport);
+
+const PORT = process.env.PORT || 8009;
 
 //mongoi const
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://GShiels:Goldduck99@pokerumble-wpaen.mongodb.net/test?retryWrites=true&w=majority";
 
-const session = require("express-session");
 
-//set var for the cont for easy calls
-var app = express();
 
-var mongoose = require("mongoose");
-var bodyParser = require('body-parser');
 
 //allows all requests to be sent to the console
 var morgan = require('morgan');
@@ -59,6 +64,11 @@ app.use(
     resave: true,
     saveUninitialized: true
 }));
+
+
+//Passport stuff
+app.use(passport.initialize());
+app.use(passport.session());
 
 //connect the flash
 app.use(flash());

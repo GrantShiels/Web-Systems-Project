@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-var bcrypt  = require('bcrypt-nodejs');
+const bcrypt  = require('bcryptjs');
 const passport = require('passport');
 
 //user Model
@@ -53,26 +53,35 @@ router.post("/register", (req, res) => {
                         password
                     });
 
-                    bcrypt.hash(newUser.password, null, null, function(err, hash) {
-                        if (err) return next(err);
-                        console.log("password hashing...");
-                        ///chnage the password to the hashed version
-                        newUser.password = hash;
+                    bcrypt.genSalt(10, (err, salt) => {
+                        bcrypt.hash(newUser.password, salt, (err, hash) => {
+                            if (err) throw(err);
+                            console.log("password hashing...");
+                            //chnage the password to the hashed version
+                            newUser.password = hash;
 
-                        //save the new user
-                        newUser.save()
-                            //then redirect to login page
-                            .then(user => {
-                                req.flash("success_msg", "Account Created!")
-                                res.redirect("/user/login");
-
-                            })
+                            //save the new user
+                            newUser.save()
+                                //then redirect to login page
+                                .then(user => {
+                                    req.flash("success_msg", "Account Created!")
+                                    res.redirect("/user/login");
+                                })
                             .catch(err => console.log(err));
-
+                        });
                     });
                 }
             });
     }
+});
+
+//post for login page
+router.post("/login", (req, res, next) => {
+        passport.authenticate('local', {
+          successRedirect: '/profile',
+          failureRedirect: '/user/login',
+          failureFlash: true
+        })(req, res, next);
 });
 
 module.exports = router;
