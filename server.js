@@ -43,7 +43,11 @@ app.set('scripts', path.join(__dirname, 'scripts'))
 app.set('view engine', 'ejs')
 app.get('/', (req, res) => res.render('pages/index'))
 app.get('/pokedex', (req, res) => res.render('pages/pokedex'))
-//app.get('/login', (req, res) => res.render('pages/login'))
+app.get('/login', (req, res) => res.render('pages/login'))
+app.get("/register", (req, res) => res.render("pages/register"))
+
+
+
 
 
 //-------------------------------------------
@@ -59,8 +63,8 @@ apiRouter.use(function(req, res, next) {
   next();
 })
 
-apiRouter.get('/', function(req, res, next) { 
-  res.json({ message: 'hooray! welcome to our api!' }); 
+apiRouter.get('/', function(req, res, next) { 
+  res.json({ message: 'hooray! welcome to our api!' }); 
 });
 
 apiRouter.route('/users')

@@ -8,8 +8,6 @@
 
 <body>
 
-   
-
     <!-- Top Nav Bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
@@ -32,7 +30,7 @@
                     <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/login">Log In</a>
+                    <a class="nav-link" href="/register">Sign Up</a>
                 </li>
             </ul>
         </div>
@@ -40,7 +38,7 @@
 </nav>
 
 
-<!-- Log In Form-->
+<!-- Register Form-->
 <div class="row mt-5">
     <div class="col-md-6 m-auto">
       <div class="card card-body">
@@ -73,14 +71,29 @@
             />
           </div>
 
+          <div class="form-group">
+            <label for="password2">Please Confirm Password</label>
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              class="form-control"
+              placeholder="Confirm Password"
+              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+            />
+          </div>
+
           <button type="submit" class="btn btn-primary btn-block">
-            Login
+            Register
           </button>
         </form>
-        <p class="lead mt-4">Need to create an account? <a href="/register">Register</a></p>
+        <p class="lead mt-4">Already made an account? <a href="/login">Login</a></p>
       </div>
     </div>
   </div>
+  
+  
+
 
 
 <!-- Footer -->
