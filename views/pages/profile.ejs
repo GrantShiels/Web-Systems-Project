@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('segments/header.ejs') %>
+    <!-- <script type="text/javascript" src="scripts/browserify-scripts/getLoginInput.js"></script> -->
+
+</head>
+
+<body>
+
+   
+
+    <!-- Top Nav Bar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="nav-logo" src="../../img/pokeball-logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pokedex">Pokedex</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Battle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/user/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<p class="lead mb-3">Welcome <%= user.username %></p>
+
+
+
+<!-- Footer -->
+<%- include('segments/footer.ejs') %>
+
+</body>
