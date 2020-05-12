@@ -58,9 +58,21 @@ app.set('view engine', 'ejs');
 
 
 //Socket.io section
+let waitingPlayer = null;
+
 io.on("connection", (socket) => {
-  console.log("Someone has connected");
-  socket.emit("message", "Connection");
+
+  //if there is a user waiting for a game
+  if (waitingPlayer) {
+    //join users for new game
+    socket.emit("message", "New game found");
+    waitingPlayer.emit("message", "New game found");
+
+    waitingPlayer = null;
+  } else {
+    waitingPlayer = socket;
+    waitingPlayer.emit("message", "Waiting for new player")
+  }
 
   socket.on("message", (text) => {
     io.emit("message", text);

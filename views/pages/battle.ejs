@@ -37,24 +37,69 @@
 </nav>
 
 
-<div class="rps-wrapper">
-    <ul id="events">
-    </ul>
+<div class="container">
+    <div class="row">
 
-    <div class="button-wrapper">
+        <!--Client Pokemon party-->
+      <div class="col-sm">
+        <h5>Your Party</h5>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://pokeres.bastionbot.org/images/pokemon/12.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title center">Butterfree</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Flying</li>
+            </ul>
 
-        <form id="chat-form">
-            <input id="chat">
-             <button id="Send">Send</button>
-        </form>
+          </div>
 
-        <button id="One">One</button>
-        <button id="Two">Two</button>
-        <button id="Three">Three</button>
+          
+          
+      </div>
+
+      <!-- Chat Collumn-->
+      <div class="col-sm">
+        <div class="rps-wrapper">
+            <ul id="events">
+            </ul>
+        
+            <div class="button-wrapper">
+        
+                <form id="chat-form">
+                    <input id="chat">
+                     <button id="Send">Send</button>
+                </form>
+        
+                <button id="One">One</button>
+                <button id="Two">Two</button>
+                <button id="Three">Three</button>
+            </div>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="../scripts/client.js"></script>        
+      </div>
+
+      <!--Other player Pokemon party-->
+      <div class="col-sm">
+        <h5>Enemy Party</h5>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://pokeres.bastionbot.org/images/pokemon/26.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title center">Raichu</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Electric</li>
+            </ul>
+
+          </div>
+
+         
+      </div>
     </div>
-</div>
-<script src="/socket.io/socket.io.js"></script>
-<script type="text/javascript" src="../scripts/client.js"></script>
+  </div>
+
 
 
 <!-- Footer -->
