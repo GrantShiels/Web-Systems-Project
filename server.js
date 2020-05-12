@@ -14,6 +14,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+const Battle = require("./lib/pokeBattle");
+
 
 //passport script
 require("./lib/passport")(passport);
@@ -65,9 +67,8 @@ io.on("connection", (socket) => {
   //if there is a user waiting for a game
   if (waitingPlayer) {
     //join users for new game
-    socket.emit("message", "New game found");
-    waitingPlayer.emit("message", "New game found");
-
+    new Battle(waitingPlayer, socket);
+    //clear waiting player val
     waitingPlayer = null;
   } else {
     waitingPlayer = socket;
