@@ -14,10 +14,7 @@ const User = require("../models/User")
 router.get('/login', (req, res) => res.render('pages/login'))
 router.get("/register", (req, res) => res.render("pages/register"))
 
-router.get("/profile", ensureAuthenticated, (req, res) => 
-    res.render("pages/profile", { 
-        username: req.user.username
-    }));
+
 
 //post for register page
 router.post("/register", (req, res) => {
@@ -85,7 +82,7 @@ router.post("/register", (req, res) => {
 //post for login page
 router.post("/login", (req, res, next) => {
         passport.authenticate('local', {
-          successRedirect: '/user/profile',
+          successRedirect: '/game/battle',
           failureRedirect: '/user/login',
           failureFlash: true
         })(req, res, next);
