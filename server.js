@@ -6,9 +6,14 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const passport = require("passport");
-const Socket = require("socket.io");
+const http = require("http");
+const socketio = require("socket.io");
 
-var app = express();
+const app = express();
+
+const server = http.createServer(app);
+const io = socketio(server);
+
 
 //passport script
 require("./lib/passport")(passport);
@@ -18,7 +23,6 @@ const PORT = process.env.PORT || 8009;
 //mongoi const
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://GShiels:Goldduck99@pokerumble-wpaen.mongodb.net/test?retryWrites=true&w=majority";
-
 
 
 
@@ -51,6 +55,12 @@ app.use(express.static(path.join(__dirname, 'Public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('scripts', path.join(__dirname, 'lib'));
 app.set('view engine', 'ejs');
+
+
+//Socket.io section
+io.on("connection", (socket) => {
+  socket.emit("message", "Connection successful");
+}
 
 
 //Body Parse
