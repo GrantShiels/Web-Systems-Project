@@ -20,7 +20,16 @@ const onFormSubmitted = (e) => {
     input.value = "";
 
     socket.emit("message", text);
-}
+};
+
+const addButtonListeners = () => {
+    ["Grass", "Water", "Fire"].forEach((id) => {
+        const button = document.getElementById(id);
+        button.addEventListener("click", () => {
+        socket.emit("turn", id);
+        });
+    });
+};
 
 
 writeEvent("Welcome to the game screen");
@@ -29,3 +38,5 @@ const socket = io();
 socket.on("message", writeEvent);
 
 document.querySelector("#chat-form").addEventListener("submit", onFormSubmitted);
+
+addButtonListeners();
