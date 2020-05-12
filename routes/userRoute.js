@@ -16,7 +16,7 @@ router.get("/register", (req, res) => res.render("pages/register"))
 
 router.get("/profile", ensureAuthenticated, (req, res) => 
     res.render("pages/profile", { 
-        user: req.user.username
+        username: req.user.username
     }));
 
 //post for register page
