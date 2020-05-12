@@ -37,83 +37,86 @@
 </nav>
 
 
-<div class="container">
-    <div class="row">
+<div class="container-fluid padding">
+    <div class="row padding">
 
-        <!--Client Pokemon party-->
-      <div class="col-sm">
-        <h5>Your Party</h5>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://pokeres.bastionbot.org/images/pokemon/1.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title center">Bulbasaur</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li id="pokemon1" class="list-group-item">Grass</li>
+         <!-- Chat Collumn-->
+        <div class="chat-wrapper">
+            <ul id="events">
             </ul>
+        
+            <div class="button-wrapper">
+                
+                <div class="chat-form-container">
+                    <form id="chat-form">
+                        <input id="chat">
+                        <button id="Send" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i>Send</button>
+                    </form>
+                </div>
 
-          </div>
+                <div class="poke-button-wrapper">
+                    <button id="Grass" class="btn btn-primary btn-lg">Bulbasaur</button>
+                    <button id="Water" class="btn btn-primary btn-lg">Mudkip</button>
+                    <button id="Fire" class="btn btn-primary btn-lg">Chimchar</button>
+                </div>    
+            </div>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="../scripts/client.js"></script>        
+      </div>
+      </div>
 
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://pokeres.bastionbot.org/images/pokemon/26.png" alt="Card image cap">
+    </div>
+</div>
+
+<!--Player pokemon team-->
+<div class="container-fluid padding">
+    <div class="row text-center padding">
+
+
+            <div class="battle-card card col-xs-12 col-sm-6 col-md-4" style="width: 18rem;">
+                <img class="card-img-top" src="https://pokeres.bastionbot.org/images/pokemon/1.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title center">Bulbasaur</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li id="pokemon1" class="list-group-item">Grass</li>
+                </ul>
+            </div>
+
+
+
+
+            <div class="battle-card card col-xs-12 col-sm-6 col-md-4" style="width: 18rem;">
+                <img class="card-img-top" src="https://pokeres.bastionbot.org/images/pokemon/258.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title center">Mudkip</h5>
             </div>
             <ul class="list-group list-group-flush">
               <li id="pokemon2" class="list-group-item">Water</li>
             </ul>
+            </div>
 
-          </div>
 
 
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://pokeres.bastionbot.org/images/pokemon/45.png" alt="Card image cap">
+
+            <div class="battle-card card col-sm-12 col-md-4" style="width: 18rem;">
+                <img class="card-img-top" src="https://pokeres.bastionbot.org/images/pokemon/390.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title center">Chimchar</h5>
             </div>
             <ul class="list-group list-group-flush">
               <li id="pokemon3" class="list-group-item">Fire</li>
             </ul>
-
-          </div>
-
-
-          
-          
-      </div>
-
-      <!-- Chat Collumn-->
-      <div class="col-sm">
-        <div class="rps-wrapper">
-            <ul id="events">
-            </ul>
-        
-            <div class="button-wrapper">
-        
-                <form id="chat-form">
-                    <input id="chat">
-                     <button id="Send">Send</button>
-                </form>
-        
-                <button id="Grass">Bulbasaur</button>
-                <button id="Water">Mudkip</button>
-                <button id="Fire">Chimchar</button>
-                
             </div>
-        </div>
-        <script src="/socket.io/socket.io.js"></script>
-        <script type="text/javascript" src="../scripts/client.js"></script>        
-      </div>
 
-      <!--Other player Pokemon party-->
-      <div class="col-sm">
-        <h5>Enemy Party</h5>
 
-       
-         
-      </div>
+
     </div>
-  </div>
+</div>
+
+ 
+  
 
 
 
