@@ -90,6 +90,7 @@ app.get('/pokedex', (req, res) => res.render('pages/pokedex'));
 app.get("/battle", (req, res) => res.render("pages/battle"));
 app.get("/chat", (req, res) => res.render("pages/chat"));
 app.use("/user", require("./routes/userRoute"));
+app.use("/game", require("./routes/gameRoute"));
 
 
 
