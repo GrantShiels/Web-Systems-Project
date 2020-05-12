@@ -59,8 +59,13 @@ app.set('view engine', 'ejs');
 
 //Socket.io section
 io.on("connection", (socket) => {
-  socket.emit("message", "Connection successful");
-}
+  console.log("Someone has connected");
+  socket.emit("message", "Connection");
+
+  socket.on("message", (text) => {
+    io.emit("message", text);
+  })
+});
 
 
 //Body Parse
@@ -107,4 +112,4 @@ app.use("/game", require("./routes/gameRoute"));
 
 
 
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+server.listen(PORT, () => console.log(`Listening on ${ PORT }`));
