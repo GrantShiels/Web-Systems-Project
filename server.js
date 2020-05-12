@@ -120,6 +120,7 @@ app.get("/chat", (req, res) => res.render("pages/chat"));
 app.use("/user", require("./routes/userRoute"));
 app.use("/game", require("./routes/gameRoute"));
 
+app.get("/*", (req, res) => res.redirect('/'));
 
 
 
