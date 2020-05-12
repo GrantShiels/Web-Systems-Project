@@ -2248,7 +2248,7 @@ exports.rootEndpoints = [
 
         //create new image element
         let pokeImage = document.createElement("img")
-        pokeImage.setAttribute("class", "card-img-top centre")
+        pokeImage.setAttribute("class", "card-img-top center")
 
         //get the image from the ID
         pokeImage.srcset = imgUrl

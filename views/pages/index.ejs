@@ -35,9 +35,6 @@
 <!--- Header Slide Show -->
 <div id="slides" class="carousel slide" data-ride="carousel">
 
-	<ul class="carousel-indicators ">
-		<li data-targets="#slides" data-slide-to="0" class="active"></li>
-	</ul>
 
 	<div class="carousel-inner">
 
@@ -56,16 +53,131 @@
 
 
 <!--- Info Banner -->
-<div class="container-fluid">
+<div class="container-fluid text-center">
 	<div class="row jumbotron">
-		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+		<div ">
 			<p class="lead">
-				The original purpose of this web app was to create a turn-based Pokemon fighting game that can be found in the mainline Pokemon games created by game freak. However, as time went on the complexity of implementing every pokemon and all of their moves and then having the user select what moves they wanted would have been too extreme for a project of this scope. So I adapted the system I made to create a basic turn-based game between two users, where they both have a party of three Pokemon and the winner is determined based on the pokemon "type", sort of like rock paper scissors. Press the button on the right to have a shot. 
+				The original purpose of this web app was to create a turn-based Pokemon fighting game that can be found in the mainline Pokemon games created by game freak. However, as time went on the complexity of implementing every pokemon and all of their moves and then having the user select what moves they wanted would have been too extreme for a project of this scope. So I adapted the system I made to create a basic turn-based game between two users, where they both have a party of three Pokemon and the winner is determined based on the pokemon "type", sort of like rock paper scissors, where water beats fire, fire beats grass and grass beats water. Press the button above to have a shot. 
 			 </p>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-			<a href="/game/battle"><button type="button" class="btn btn-outline-secondary btn-lg">Play Game</button></a>
+	</div>
+</div>
+
+
+<!--Stuff used-->
+<div class="container-fluid padding info">
+<div class="row text-center padding">
+	<div class="col-xs-12 col-sm-6 col-md-4">
+		<a href="https://pokeapi.co/">
+			<h3>PokeAPI</h3>
+		</a>
+		<p>An API that allows access to any information you'd want regarding any Pokemon.</p>
+	</div>
+
+	<div class="col-xs-12 col-sm-6 col-md-4">
+		<a href="https://pokeres.bastionbot.org/">
+			<h3>Pokeres API</h3>
+		</a>
+		<p>This API stores an HD image for each pokemon, all the images for pokemon are taken from here.</p>
+	</div>
+
+	<div class="col-sm-12 col-md-4">
+		<a href="https://nodejs.org/en/">
+			<h3>Node.js</h3>
+		</a>
+		<p>
+			The whole backend is powered via the use of Node.js
+		</p>
+	</div>
+</div>
+</div>
+
+<div class="container-fluid padding info">
+<div class="row text-center padding">
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a href="https://socket.io/">
+				<h3>Socket.IO</h3>
+			</a>
+			<p>
+				This was used in creating the chat room and pokemon battle game.
+			</p>
+				</div>
+	
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a href="https://www.mongodb.com/">
+				<h3>MongoDB</h3>
+			</a>
+			<p>
+				MongoDB is what I used for the storage database that holds the user's login in details. The database is also hosted on MongoDB Atlas			</p>
+				</div>
+	
+		<div class="col-sm-12 col-md-4">
+			<a href="https://expressjs.com/">
+				<h3>Express.js</h3>
+			</a>
+			<p>
+				Express.js was used to handle all of the routing between the different areas of the website.			</p>
 		</div>
+</div>
+</div>
+
+<div class="container-fluid padding info">
+	<div class="row text-center padding">
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a href="https://getbootstrap.com/">
+				<h3>Bootstrap</h3>
+			</a>
+			<p>
+				For styling and allowing for easy resizing I used Bootstrap
+			</p>
+				</div>
+	
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a href="http://www.passportjs.org/docs/">
+				<h3>Passport.js</h3>
+			</a>
+			<p>
+				Used for helping with authentication of user registration and login.				</div>
+	
+		<div class="col-sm-12 col-md-4">
+			<a href="https://ejs.co/">
+				<h3>EJS</h3>
+			</a>
+			<p>
+				EJS was used throughout the website to for displaying information by allowing for embedded code in pages.
+			</p>
+			</div>
+	</div>
+</div>
+
+<div class="container-fluid padding info">
+	<div class="row text-center padding">
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a href="https://mongoosejs.com/">
+				<h3>Mongoose</h3>
+			</a>
+			<p>
+				Used in conjunction with MongoDB to help with creating a model for our user data.
+			</p>
+		</div>
+	
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a href="https://www.npmjs.com/package/bcrypt">
+				<h3>Bcrypt</h3>
+			</a>
+			<p>
+				Used for hashing the users password to aid with security.
+			</p>
+					</div>
+	
+		<div class="col-sm-12 col-md-4">
+			<a href="http://browserify.org/">
+				<h3>Browserify</h3>
+			</a>
+			<p>
+				Used inorder to run some scripts that need to require modules.
+			</p>
+			</div>
 	</div>
 </div>
 

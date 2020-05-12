@@ -59,6 +59,12 @@ html, body {
   padding: 1rem;
   border-radius: 0;
 }
+.info a {
+  color: #ff0000;
+}
+.info a:hover {
+  color: #de0909;
+}
 .footer {
   background-color: #3f3f3f;
   color: #d5d5d5;
@@ -73,9 +79,7 @@ hr.light {
 }
 
 /* Pokedex Css Section */
-.card {
-  
-}
+
 .card-img-top {
   width: 50%;
   display: block;
