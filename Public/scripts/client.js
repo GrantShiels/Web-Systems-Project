@@ -31,8 +31,9 @@ const addButtonListeners = () => {
     });
 };
 
+var userName = document.getElementById("user-name").innerText;
 
-writeEvent("Welcome to the game screen");
+writeEvent("Welcome to the game screen " + userName);
 
 const socket = io();
 socket.on("message", writeEvent);

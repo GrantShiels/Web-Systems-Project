@@ -81,6 +81,9 @@ hr.light {
 
 
 /* Battle section */
+.trainer-name {
+  display: none;
+}
 .battle-card {
   display: block;
   margin-left: auto;
