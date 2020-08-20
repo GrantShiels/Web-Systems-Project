@@ -4,7 +4,7 @@
   "description": "pokemon battling app",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
